@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+
+    <script>
+        function validation()
+        {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var conpassword = document.getElementById('conpassword').value;
+            var number = document.getElementById('number').value;
+            var email = document.getElementById('email').value;
+
+
+
+            var usercheck = /^[A-Za-z. ]{3,30}$/;
+            var passwordcheck = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-z0-9!@#$%^&*]{8,16}$/;
+            var numbercheck = /^[0][0-9]{6,10}$/;
+            var emailcheck = /^[a-z._0-9-]+@[a-z]+(\.com|\.co)$/;
+            
+
+
+
+            if (usercheck.test(username))
+            {
+                document.getElementById('user_error').innerHTML = " ";
+
+            }
+            else
+            {
+                document.getElementById('user_error').innerHTML = " Username is not valid <br/> Please use alphabets only <br/> Your Name should not contain any didgit or any special character ";
+                return false;
+            }
+            //~~~~~~~~~~~~~~~~~~~~~~~~~
+            if (passwordcheck.test(password)) {
+                document.getElementById('password_error').innerHTML = " ";
+
+            }
+            else {
+                document.getElementById('password_error').innerHTML = "Your password is not acceptable <br/> Your Password must contain atleast one special character and one number character <br/> Your password should be atleast 8-didgit ";
+                return false;
+            }
+            //~~~~~~~~~~~~~~~~~~~~~~~~~
+            if (conpassword.match(password))
+            {
+                document.getElementById('conpassword_error').innerHTML = " ";
+            }
+            else
+            {
+                document.getElementById('conpassword_error').innerHTML = "Please make sure your password matches the password entered above ";
+            }
+            //~~~~~~~~~~~~~~~~~~~~~~~~~
+
+            if (numbercheck.test(number)) {
+                document.getElementById('number_error').innerHTML = " ";
+
+            }
+            else {
+                document.getElementById('number_error').innerHTML = " Your Mobile Number is invalid <br/> Your mobile number must start from 0 (zero) <br/> Your mobile number should be 6-15 digits  ";
+                return false;
+            }
+            if (emailcheck.test(email)) {
+                document.getElementById('email_error').innerHTML = " ";
+
+            }
+            else {
+                document.getElementById('email_error').innerHTML = " Your Email is invalid  <br/> Please eneter your email in standard format ";
+                return false;
+            }
+            //~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+        }
+    </script>
+</head>
+<body style="background-color: lemonchiffon">
+    <h1 class="text-danger text-center font-weight-bold bg-danger" style="font-size: 45px;">***** WELCOME !! ***** <br/> Before Further Proceeding Please Enter Your V@L!D Details </h1>
+
+    <div class="container">
+        <br>
+
+        <div class="col-lg-8 m-auto d-block">
+
+            <form onsubmit="return validation()" class="bg-danger">
+
+                <div class="form-group">
+                    <label for="username" class="font-weight-bold"> Username: </label>
+                    <input type="text" name="user" class="form-control" id="username" autocomplete="off">
+                    <span id="user_error" class="text-danger font-weight-bold"> </span>
+                </div>
+
+                <div class="form-group">
+                    <label class="font-weight-bold"> Password: </label>
+                    <input type="text" name="pass" class="form-control" id="password" autocomplete="off">
+                    <span id="password_error" class="text-danger font-weight-bold"> </span>
+                </div>
+
+                <div class="form-group">
+                    <label class="font-weight-bold"> Confirm Password: </label>
+                    <input type="text" name="conpass" class="form-control" id="conpassword" autocomplete="off">
+                    <span id="conpassword_error" class="text-danger font-weight-bold"> </span>
+                </div>
+
+                <div class="form-group">
+                    <label class="font-weight-bold"> Mobile Number: </label>
+                    <input type="text" name="mobile" class="form-control" id="number" autocomplete="off">
+                    <span id="number_error" class="text-danger font-weight-bold"> </span>
+                </div>
+
+                <div class="form-group">
+                    <label class="font-weight-bold"> Email: </label>
+                    <input type="text" name="email" class="form-control" id="email" autocomplete="off">
+                    <span id="email_error" class="text-danger font-weight-bold"> </span>
+                </div>
+
+                <input type="submit" name="submit" value="submit" id="submit" class="btn btn-danger">
+
+
+            </form><br><br>
+
+        </div>
+    </div>
+
+
+
+    
+</body>
+</html>
