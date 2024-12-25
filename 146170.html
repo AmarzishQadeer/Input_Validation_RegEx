@@ -1,0 +1,119 @@
+<html>
+<head>
+    <title>Regular expression test</title>
+ <script>
+     var arr=['0','0','0','0'];
+    function mail_test()
+    {       var btn=document.getElementById("Submit");
+            btn.disabled=true;
+            var Mail=document.getElementById("mail").value;       
+            var R_mail=/[a-zA-Z._0-9-]+@[a-zA-Z]+(\.com|\.pk)/;
+            if(R_mail.test(Mail))
+            {      arr[0]='1';
+                document.getElementById("mail").style.backgroundColor="rgb(135, 231, 159)";   
+          
+            }
+            else
+             {
+                document.getElementById("mail").style.backgroundColor="rgb(247, 88, 88, 0.884)";   
+             }
+    }
+    function dob_test()
+    {       var btn=document.getElementById("Submit");
+            btn.disabled=true;
+            var Date1=document.getElementById("date").value;           
+            var R_date=/\b([12]{1}|[12]{2}|30|31)+[/]+([0-9]{2}|10|11|12|[1-9]{1})+[/]+([0-9]{2}|[0-9]{4})+\b/;
+            if(R_date.test(Date1))
+            {
+                document.getElementById("date").style.backgroundColor="rgb(135, 231, 159)";   
+                arr[1]='1';
+            }
+            else
+             {
+                document.getElementById("date").style.backgroundColor="rgb(247, 88, 88, 0.884)";   
+             }
+    }
+    function cinc_test()
+    {       var btn=document.getElementById("Submit");
+            btn.disabled=true;
+            var Cinc=document.getElementById("cinc").value; 
+            var R_cinc=/(\d{6}[-]\d{6}[-]\d{1})|(\d{13})/;
+             if(R_cinc.test(Cinc))
+            {
+                document.getElementById("cinc").style.backgroundColor="rgb(135, 231, 159)";   
+                arr[2]='1';
+            }
+            
+            else
+             {
+                document.getElementById("cinc").style.backgroundColor="rgb(247, 88, 88, 0.884)";   
+             }
+     }
+    function url_test()
+    {       var btn=document.getElementById("Submit");
+            btn.disabled=true;
+            var Url=document.getElementById("url").value; 
+            var R_url=/(http|https):[/]{2}[w]{3}[.]+[a-zA-Z-_.]+[.com|.pk]/;
+             if(R_url.test(Url))
+            {
+                document.getElementById("url").style.backgroundColor="rgb(135, 231, 159)";   
+                arr[3]='1';
+                validate();
+            }
+            
+            else
+             {
+                document.getElementById("url").style.backgroundColor="rgb(247, 88, 88, 0.884)";   
+                validate();
+             }
+    }
+    function validate()
+    {
+        if(arr[0]='1'&&arr[1]=='1'&&arr[2]=='1'&&arr[3]=='1')
+        {
+            var btn=document.getElementById("Submit");
+            btn.disabled=false;
+        }
+    }
+ </script>
+            
+    <style>
+    body{
+        font-family:sans-serif;
+        background-color:rgb(62, 123, 228);
+    }
+    form{
+        background-color:rgba(49, 73, 114, 0.336);
+        
+        color:whitesmoke;
+     
+    }
+    input{
+        padding:10 13 10 13 ;border-radius:20px; width: 350px;background-color: rgb(232, 238, 233); margin-left:25%; margin-top:3%;
+    }
+    h1 {
+        text-align: center;
+        font-size: 45px;
+    }
+    h2 {
+        text-align: center;
+    }
+    button{
+        padding:5 8 5 8 ;border-radius:8px; width: 100px;background-color: rgba(6, 48, 65, 0.884); margin-left:42%; margin-top:5%;color:white;
+    }
+    </style>
+    
+</head>
+<body>
+<form style="border:dashed 1px; height:99%;width:700px; margin-left:300px;">
+<h1 > XYZ Company </h1>
+<h2 > Details please </h2>
+<input type="text"   id="name" onclick="disable_intial()" placeholder=" Name" required>
+<input type="text"   id="mail" onchange="mail_test()"   placeholder=" E-mail" required >
+<input type="text"   id="date" onchange="dob_test()"    placeholder="Date of birth [1/1/2018] " required>
+<input type="text"   id="cinc" onchange="cinc_test()"   placeholder=" C-I-N-C" required>
+<input type="text"   id="url"  onchange="url_test()"    placeholder="https://www.url.com" required>
+<button id="Submit" >Submit</button>
+</form>
+</body>
+</html>
